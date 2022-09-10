@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NumbersConversion\Cases.cs" />
+    <Compile Include="NumbersConversion\ConversionTables.cs" />
+    <Compile Include="NumbersConversion\Genders.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
