@@ -397,5 +397,83 @@
                 }
             }
         };
+
+        /// <summary>
+        /// Conversion table for one thousand
+        /// </summary>
+        public static Dictionary<GrammaticalNumbers, Dictionary<Cases, string>> Thousand =
+            new Dictionary<GrammaticalNumbers, Dictionary<Cases, string>>()
+        {
+            [GrammaticalNumbers.Singular] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "тысяча",
+                [Cases.Genitive] =      "тысячи",
+                [Cases.Dative] =        "тысяче",
+                [Cases.Accusative] =    "тысячу",
+                [Cases.Instrumental] =  "тысячей",
+                [Cases.Prepositional] = "тысяче"
+            },
+            [GrammaticalNumbers.Plural] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "тысячи",
+                [Cases.Genitive] =      "тысяч",
+                [Cases.Dative] =        "тысячам",
+                [Cases.Accusative] =    "тысячи",
+                [Cases.Instrumental] =  "тысячами",
+                [Cases.Prepositional] = "тысячах"
+            }
+        };
+
+        /// <summary>
+        /// Conversion table for one million
+        /// </summary>
+        public static Dictionary<GrammaticalNumbers, Dictionary<Cases, string>> Million =
+            new Dictionary<GrammaticalNumbers, Dictionary<Cases, string>>()
+        {
+            [GrammaticalNumbers.Singular] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "миллион",
+                [Cases.Genitive] =      "миллиона",
+                [Cases.Dative] =        "миллиону",
+                [Cases.Accusative] =    "миллион",
+                [Cases.Instrumental] =  "миллионом",
+                [Cases.Prepositional] = "миллионе"
+            },
+            [GrammaticalNumbers.Plural] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "миллионы",
+                [Cases.Genitive] =      "миллионов",
+                [Cases.Dative] =        "миллионам",
+                [Cases.Accusative] =    "миллионы",
+                [Cases.Instrumental] =  "миллионами",
+                [Cases.Prepositional] = "миллионах"
+            }
+        };
+
+        /// <summary>
+        /// Conversion table for one billion
+        /// </summary>
+        public static Dictionary<GrammaticalNumbers, Dictionary<Cases, string>> Billion =
+            new Dictionary<GrammaticalNumbers, Dictionary<Cases, string>>()
+        {
+            [GrammaticalNumbers.Singular] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "миллиард",
+                [Cases.Genitive] =      "миллиарда",
+                [Cases.Dative] =        "миллиарду",
+                [Cases.Accusative] =    "миллиард",
+                [Cases.Instrumental] =  "миллиардом",
+                [Cases.Prepositional] = "миллиарде"
+            },
+            [GrammaticalNumbers.Plural] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "миллиарды",
+                [Cases.Genitive] =      "миллиардов",
+                [Cases.Dative] =        "миллиардам",
+                [Cases.Accusative] =    "миллиарды",
+                [Cases.Instrumental] =  "миллиардами",
+                [Cases.Prepositional] = "миллиардах"
+            }
+        };
     }
 }
