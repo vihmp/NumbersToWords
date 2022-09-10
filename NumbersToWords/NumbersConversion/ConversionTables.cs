@@ -1,11 +1,6 @@
 ﻿namespace NumbersToWords.NumbersConversion
 {
-    using CasesTable = System.Collections.Generic.Dictionary<Cases, string>;
-    using GendersTable = System.Collections.Generic.Dictionary<
-        Genders, System.Collections.Generic.Dictionary<Cases, string>>;
-    using ConversionTable = System.Collections.Generic.Dictionary<
-        int, System.Collections.Generic.Dictionary<
-            Genders, System.Collections.Generic.Dictionary<Cases, string>>>;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Collection of tables describing conversion of numbers to words
@@ -13,43 +8,337 @@
     public static class ConversionTables
     {
         /// <summary>
-        /// Conversion table for numbers from 0 to 19
+        /// Conversion table for numbers that are not inflected for gender
         /// </summary>
-        public static ConversionTable Digits { get; } = new ConversionTable()
+        public static Dictionary<ulong, Dictionary<Cases, string>> NonGenderedNumbers { get; } =
+            new Dictionary<ulong, Dictionary<Cases, string>>()
         {
-            [0] = new GendersTable()
+            [0] = new Dictionary<Cases, string>()
             {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "ноль",
-                    [Cases.Genitive] =      "ноля",
-                    [Cases.Dative] =        "нолю",
-                    [Cases.Accusative] =    "ноль",
-                    [Cases.Instrumental] =  "нолем",
-                    [Cases.Prepositional] = "ноле"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "ноль",
-                    [Cases.Genitive] =      "ноля",
-                    [Cases.Dative] =        "нолю",
-                    [Cases.Accusative] =    "ноль",
-                    [Cases.Instrumental] =  "нолем",
-                    [Cases.Prepositional] = "ноле"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "ноль",
-                    [Cases.Genitive] =      "ноля",
-                    [Cases.Dative] =        "нолю",
-                    [Cases.Accusative] =    "ноль",
-                    [Cases.Instrumental] =  "нолем",
-                    [Cases.Prepositional] = "ноле"
-                }
+                [Cases.Nominative] =    "ноль",
+                [Cases.Genitive] =      "ноля",
+                [Cases.Dative] =        "нолю",
+                [Cases.Accusative] =    "ноль",
+                [Cases.Instrumental] =  "нолем",
+                [Cases.Prepositional] = "ноле"
             },
-            [1] = new GendersTable()
+            [3] = new Dictionary<Cases, string>()
             {
-                [Genders.Masculine] = new CasesTable()
+                [Cases.Nominative] =    "три",
+                [Cases.Genitive] =      "трех",
+                [Cases.Dative] =        "трем",
+                [Cases.Accusative] =    "три",
+                [Cases.Instrumental] =  "тремя",
+                [Cases.Prepositional] = "трех"
+            },
+            [4] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "четыре",
+                [Cases.Genitive] =      "четырех",
+                [Cases.Dative] =        "четырем",
+                [Cases.Accusative] =    "четыре",
+                [Cases.Instrumental] =  "четырьмя",
+                [Cases.Prepositional] = "четырех"
+            },
+            [5] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "пять",
+                [Cases.Genitive] =      "пяти",
+                [Cases.Dative] =        "пяти",
+                [Cases.Accusative] =    "пять",
+                [Cases.Instrumental] =  "пятью",
+                [Cases.Prepositional] = "пяти"
+            },
+            [6] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "шесть",
+                [Cases.Genitive] =      "шести",
+                [Cases.Dative] =        "шести",
+                [Cases.Accusative] =    "шесть",
+                [Cases.Instrumental] =  "шестью",
+                [Cases.Prepositional] = "шести"
+            },
+            [7] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "семь",
+                [Cases.Genitive] =      "семи",
+                [Cases.Dative] =        "семи",
+                [Cases.Accusative] =    "семь",
+                [Cases.Instrumental] =  "семью",
+                [Cases.Prepositional] = "семи"
+            },
+            [8] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "восемь",
+                [Cases.Genitive] =      "восьми",
+                [Cases.Dative] =        "восьми",
+                [Cases.Accusative] =    "восемь",
+                [Cases.Instrumental] =  "восемью",
+                [Cases.Prepositional] = "восьми"
+            },
+            [9] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "девять",
+                [Cases.Genitive] =      "девяти",
+                [Cases.Dative] =        "девяти",
+                [Cases.Accusative] =    "девять",
+                [Cases.Instrumental] =  "девятью",
+                [Cases.Prepositional] = "девяти"
+            },
+            [10] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "десять",
+                [Cases.Genitive] =      "десяти",
+                [Cases.Dative] =        "десяти",
+                [Cases.Accusative] =    "десять",
+                [Cases.Instrumental] =  "десятью",
+                [Cases.Prepositional] = "десяти"
+            },
+            [11] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "одиннадцать",
+                [Cases.Genitive] =      "одиннадцати",
+                [Cases.Dative] =        "одиннадцати",
+                [Cases.Accusative] =    "одиннадцать",
+                [Cases.Instrumental] =  "одиннадцатью",
+                [Cases.Prepositional] = "одиннадцати"
+            },
+            [12] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "двенадцать",
+                [Cases.Genitive] =      "двенадцати",
+                [Cases.Dative] =        "двенадцати",
+                [Cases.Accusative] =    "двенадцать",
+                [Cases.Instrumental] =  "двенадцатью",
+                [Cases.Prepositional] = "двенадцати"
+            },
+            [13] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "тринадцать",
+                [Cases.Genitive] =      "тринадцати",
+                [Cases.Dative] =        "тринадцати",
+                [Cases.Accusative] =    "тринадцать",
+                [Cases.Instrumental] =  "тринадцатью",
+                [Cases.Prepositional] = "тринадцати"
+            },
+            [14] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "четырнадцать",
+                [Cases.Genitive] =      "четырнадцати",
+                [Cases.Dative] =        "четырнадцати",
+                [Cases.Accusative] =    "четырнадцать",
+                [Cases.Instrumental] =  "четырнадцатью",
+                [Cases.Prepositional] = "четырнадцати"
+            },
+            [15] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "пятнадцать",
+                [Cases.Genitive] =      "пятнадцати",
+                [Cases.Dative] =        "пятнадцати",
+                [Cases.Accusative] =    "пятнадцать",
+                [Cases.Instrumental] =  "пятнадцатью",
+                [Cases.Prepositional] = "пятнадцати"
+            },
+            [16] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "шестнадцать",
+                [Cases.Genitive] =      "шестнадцати",
+                [Cases.Dative] =        "шестнадцати",
+                [Cases.Accusative] =    "шестнадцать",
+                [Cases.Instrumental] =  "шестнадцатью",
+                [Cases.Prepositional] = "шестнадцати"
+            },
+            [17] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "семнадцать",
+                [Cases.Genitive] =      "семнадцати",
+                [Cases.Dative] =        "семнадцати",
+                [Cases.Accusative] =    "семнадцать",
+                [Cases.Instrumental] =  "семнадцатью",
+                [Cases.Prepositional] = "семнадцати"
+            },
+            [18] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "восемнадцать",
+                [Cases.Genitive] =      "восемнадцати",
+                [Cases.Dative] =        "восемнадцати",
+                [Cases.Accusative] =    "восемнадцать",
+                [Cases.Instrumental] =  "восемнадцатью",
+                [Cases.Prepositional] = "восемнадцати"
+            },
+            [19] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "девятнадцать",
+                [Cases.Genitive] =      "девятнадцати",
+                [Cases.Dative] =        "девятнадцати",
+                [Cases.Accusative] =    "девятнадцать",
+                [Cases.Instrumental] =  "девятнадцатью",
+                [Cases.Prepositional] = "девятнадцати"
+            },
+            [20] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "двадцать",
+                [Cases.Genitive] =      "двадцати",
+                [Cases.Dative] =        "двадцати",
+                [Cases.Accusative] =    "двадцать",
+                [Cases.Instrumental] =  "двадцатью",
+                [Cases.Prepositional] = "двадцати"
+            },
+            [30] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "тридцать",
+                [Cases.Genitive] =      "тридцати",
+                [Cases.Dative] =        "тридцати",
+                [Cases.Accusative] =    "тридцать",
+                [Cases.Instrumental] =  "тридцатью",
+                [Cases.Prepositional] = "тридцати"
+            },
+            [40] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "сорок",
+                [Cases.Genitive] =      "сорока",
+                [Cases.Dative] =        "сорока",
+                [Cases.Accusative] =    "сорок",
+                [Cases.Instrumental] =  "сорока",
+                [Cases.Prepositional] = "сорока"
+            },
+            [50] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "пятьдесят",
+                [Cases.Genitive] =      "пятидесяти",
+                [Cases.Dative] =        "пятидесяти",
+                [Cases.Accusative] =    "пятьдесят",
+                [Cases.Instrumental] =  "пятьюдесятью",
+                [Cases.Prepositional] = "пятидесяти"
+            },
+            [60] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "шестьдесят",
+                [Cases.Genitive] =      "шестидесяти",
+                [Cases.Dative] =        "шестидесяти",
+                [Cases.Accusative] =    "шестьдесят",
+                [Cases.Instrumental] =  "шестьюдесятью",
+                [Cases.Prepositional] = "шестидесяти"
+            },
+            [70] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "семьдесят",
+                [Cases.Genitive] =      "семидесяти",
+                [Cases.Dative] =        "семидесяти",
+                [Cases.Accusative] =    "семьдесят",
+                [Cases.Instrumental] =  "семьюдесятью",
+                [Cases.Prepositional] = "семидесяти"
+            },
+            [80] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "восемьдесят",
+                [Cases.Genitive] =      "восьмидесяти",
+                [Cases.Dative] =        "восьмидесяти",
+                [Cases.Accusative] =    "восемьдесят",
+                [Cases.Instrumental] =  "восемьюдесятью",
+                [Cases.Prepositional] = "восьмидесяти"
+            },
+            [90] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "девяносто",
+                [Cases.Genitive] =      "девяноста",
+                [Cases.Dative] =        "девяноста",
+                [Cases.Accusative] =    "девяносто",
+                [Cases.Instrumental] =  "девяноста",
+                [Cases.Prepositional] = "девяноста"
+            },
+            [100] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "сто",
+                [Cases.Genitive] =      "ста",
+                [Cases.Dative] =        "ста",
+                [Cases.Accusative] =    "сто",
+                [Cases.Instrumental] =  "ста",
+                [Cases.Prepositional] = "ста"
+            },
+            [200] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "двести",
+                [Cases.Genitive] =      "двухсот",
+                [Cases.Dative] =        "двумстам",
+                [Cases.Accusative] =    "двести",
+                [Cases.Instrumental] =  "двумястами",
+                [Cases.Prepositional] = "двухстах"
+            },
+            [300] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "триста",
+                [Cases.Genitive] =      "трехсот",
+                [Cases.Dative] =        "тремстам",
+                [Cases.Accusative] =    "триста",
+                [Cases.Instrumental] =  "тремястами",
+                [Cases.Prepositional] = "трехстах"
+            },
+            [400] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "четыреста",
+                [Cases.Genitive] =      "четырехсот",
+                [Cases.Dative] =        "четыремстам",
+                [Cases.Accusative] =    "четыреста",
+                [Cases.Instrumental] =  "четырьмястами",
+                [Cases.Prepositional] = "четырехстах"
+            },
+            [500] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "пятьсот",
+                [Cases.Genitive] =      "пятисот",
+                [Cases.Dative] =        "пятистам",
+                [Cases.Accusative] =    "пятьсот",
+                [Cases.Instrumental] =  "пятьюстами",
+                [Cases.Prepositional] = "пятистах"
+            },
+            [600] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "шестьсот",
+                [Cases.Genitive] =      "шестисот",
+                [Cases.Dative] =        "шестистам",
+                [Cases.Accusative] =    "шестьсот",
+                [Cases.Instrumental] =  "шестьюстами",
+                [Cases.Prepositional] = "шестистах"
+            },
+            [700] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "семьсот",
+                [Cases.Genitive] =      "семисот",
+                [Cases.Dative] =        "семистам",
+                [Cases.Accusative] =    "семьсот",
+                [Cases.Instrumental] =  "семьюстами",
+                [Cases.Prepositional] = "семистах"
+            },
+            [800] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "восемьсот",
+                [Cases.Genitive] =      "восьмисот",
+                [Cases.Dative] =        "восьмистам",
+                [Cases.Accusative] =    "восемьсот",
+                [Cases.Instrumental] =  "восемьюстами",
+                [Cases.Prepositional] = "восьмистах"
+            },
+            [900] = new Dictionary<Cases, string>()
+            {
+                [Cases.Nominative] =    "девятьсот",
+                [Cases.Genitive] =      "девятисот",
+                [Cases.Dative] =        "девятистам",
+                [Cases.Accusative] =    "девятьсот",
+                [Cases.Instrumental] =  "девятьюстами",
+                [Cases.Prepositional] = "девятистах"
+            }
+        };
+
+        /// <summary>
+        /// Conversion table for numbers that are inflected for gender
+        /// </summary>
+        public static Dictionary<ulong, Dictionary<Genders, Dictionary<Cases, string>>> GenderedNumbers { get; } =
+            new Dictionary<ulong, Dictionary<Genders, Dictionary<Cases, string>>>()
+        {
+            [1] = new Dictionary<Genders, Dictionary<Cases, string>>()
+            {
+                [Genders.Masculine] = new Dictionary<Cases, string>()
                 {
                     [Cases.Nominative] =    "один",
                     [Cases.Genitive] =      "одного",
@@ -58,7 +347,7 @@
                     [Cases.Instrumental] =  "одним",
                     [Cases.Prepositional] = "одном"
                 },
-                [Genders.Feminine] = new CasesTable()
+                [Genders.Feminine] = new Dictionary<Cases, string>()
                 {
                     [Cases.Nominative] =    "одна",
                     [Cases.Genitive] =      "одной",
@@ -67,7 +356,7 @@
                     [Cases.Instrumental] =  "одной",
                     [Cases.Prepositional] = "одной"
                 },
-                [Genders.Neuter] = new CasesTable()
+                [Genders.Neuter] = new Dictionary<Cases, string>()
                 {
                     [Cases.Nominative] =    "одно",
                     [Cases.Genitive] =      "одного",
@@ -77,9 +366,9 @@
                     [Cases.Prepositional] = "одном"
                 }
             },
-            [2] = new GendersTable()
+            [2] = new Dictionary<Genders, Dictionary<Cases, string>>()
             {
-                [Genders.Masculine] = new CasesTable()
+                [Genders.Masculine] = new Dictionary<Cases, string>()
                 {
                     [Cases.Nominative] =    "два",
                     [Cases.Genitive] =      "двух",
@@ -88,7 +377,7 @@
                     [Cases.Instrumental] =  "двумя",
                     [Cases.Prepositional] = "двух"
                 },
-                [Genders.Feminine] = new CasesTable()
+                [Genders.Feminine] = new Dictionary<Cases, string>()
                 {
                     [Cases.Nominative] =    "две",
                     [Cases.Genitive] =      "двух",
@@ -97,7 +386,7 @@
                     [Cases.Instrumental] =  "двумя",
                     [Cases.Prepositional] = "двух"
                 },
-                [Genders.Neuter] = new CasesTable()
+                [Genders.Neuter] = new Dictionary<Cases, string>()
                 {
                     [Cases.Nominative] =    "два",
                     [Cases.Genitive] =      "двух",
@@ -105,516 +394,6 @@
                     [Cases.Accusative] =    "два",
                     [Cases.Instrumental] =  "двумя",
                     [Cases.Prepositional] = "двух"
-                }
-            },
-            [3] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "три",
-                    [Cases.Genitive] =      "трех",
-                    [Cases.Dative] =        "трем",
-                    [Cases.Accusative] =    "три",
-                    [Cases.Instrumental] =  "тремя",
-                    [Cases.Prepositional] = "трех"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "три",
-                    [Cases.Genitive] =      "трех",
-                    [Cases.Dative] =        "трем",
-                    [Cases.Accusative] =    "три",
-                    [Cases.Instrumental] =  "тремя",
-                    [Cases.Prepositional] = "трех"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "три",
-                    [Cases.Genitive] =      "трех",
-                    [Cases.Dative] =        "трем",
-                    [Cases.Accusative] =    "три",
-                    [Cases.Instrumental] =  "тремя",
-                    [Cases.Prepositional] = "трех"
-                }
-            },
-            [4] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "четыре",
-                    [Cases.Genitive] =      "четырех",
-                    [Cases.Dative] =        "четырем",
-                    [Cases.Accusative] =    "четыре",
-                    [Cases.Instrumental] =  "четырьмя",
-                    [Cases.Prepositional] = "четырех"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "четыре",
-                    [Cases.Genitive] =      "четырех",
-                    [Cases.Dative] =        "четырем",
-                    [Cases.Accusative] =    "четыре",
-                    [Cases.Instrumental] =  "четырьмя",
-                    [Cases.Prepositional] = "четырех"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "четыре",
-                    [Cases.Genitive] =      "четырех",
-                    [Cases.Dative] =        "четырем",
-                    [Cases.Accusative] =    "четыре",
-                    [Cases.Instrumental] =  "четырьмя",
-                    [Cases.Prepositional] = "четырех"
-                }
-            },
-            [5] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "пять",
-                    [Cases.Genitive] =      "пяти",
-                    [Cases.Dative] =        "пяти",
-                    [Cases.Accusative] =    "пять",
-                    [Cases.Instrumental] =  "пятью",
-                    [Cases.Prepositional] = "пяти"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "пять",
-                    [Cases.Genitive] =      "пяти",
-                    [Cases.Dative] =        "пяти",
-                    [Cases.Accusative] =    "пять",
-                    [Cases.Instrumental] =  "пятью",
-                    [Cases.Prepositional] = "пяти"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "пять",
-                    [Cases.Genitive] =      "пяти",
-                    [Cases.Dative] =        "пяти",
-                    [Cases.Accusative] =    "пять",
-                    [Cases.Instrumental] =  "пятью",
-                    [Cases.Prepositional] = "пяти"
-                }
-            },
-            [6] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "шесть",
-                    [Cases.Genitive] =      "шести",
-                    [Cases.Dative] =        "шести",
-                    [Cases.Accusative] =    "шесть",
-                    [Cases.Instrumental] =  "шестью",
-                    [Cases.Prepositional] = "шести"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "шесть",
-                    [Cases.Genitive] =      "шести",
-                    [Cases.Dative] =        "шести",
-                    [Cases.Accusative] =    "шесть",
-                    [Cases.Instrumental] =  "шестью",
-                    [Cases.Prepositional] = "шести"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "шесть",
-                    [Cases.Genitive] =      "шести",
-                    [Cases.Dative] =        "шести",
-                    [Cases.Accusative] =    "шесть",
-                    [Cases.Instrumental] =  "шестью",
-                    [Cases.Prepositional] = "шести"
-                }
-            },
-            [7] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "семь",
-                    [Cases.Genitive] =      "семи",
-                    [Cases.Dative] =        "семи",
-                    [Cases.Accusative] =    "семь",
-                    [Cases.Instrumental] =  "семью",
-                    [Cases.Prepositional] = "семи"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "семь",
-                    [Cases.Genitive] =      "семи",
-                    [Cases.Dative] =        "семи",
-                    [Cases.Accusative] =    "семь",
-                    [Cases.Instrumental] =  "семью",
-                    [Cases.Prepositional] = "семи"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "семь",
-                    [Cases.Genitive] =      "семи",
-                    [Cases.Dative] =        "семи",
-                    [Cases.Accusative] =    "семь",
-                    [Cases.Instrumental] =  "семью",
-                    [Cases.Prepositional] = "семи"
-                }
-            },
-            [8] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "восемь",
-                    [Cases.Genitive] =      "восьми",
-                    [Cases.Dative] =        "восьми",
-                    [Cases.Accusative] =    "восемь",
-                    [Cases.Instrumental] =  "восемью",
-                    [Cases.Prepositional] = "восьми"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "восемь",
-                    [Cases.Genitive] =      "восьми",
-                    [Cases.Dative] =        "восьми",
-                    [Cases.Accusative] =    "восемь",
-                    [Cases.Instrumental] =  "восемью",
-                    [Cases.Prepositional] = "восьми"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "восемь",
-                    [Cases.Genitive] =      "восьми",
-                    [Cases.Dative] =        "восьми",
-                    [Cases.Accusative] =    "восемь",
-                    [Cases.Instrumental] =  "восемью",
-                    [Cases.Prepositional] = "восьми"
-                }
-            },
-            [9] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "девять",
-                    [Cases.Genitive] =      "девяти",
-                    [Cases.Dative] =        "девяти",
-                    [Cases.Accusative] =    "девять",
-                    [Cases.Instrumental] =  "девятью",
-                    [Cases.Prepositional] = "девяти"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "девять",
-                    [Cases.Genitive] =      "девяти",
-                    [Cases.Dative] =        "девяти",
-                    [Cases.Accusative] =    "девять",
-                    [Cases.Instrumental] =  "девятью",
-                    [Cases.Prepositional] = "девяти"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "девять",
-                    [Cases.Genitive] =      "девяти",
-                    [Cases.Dative] =        "девяти",
-                    [Cases.Accusative] =    "девять",
-                    [Cases.Instrumental] =  "девятью",
-                    [Cases.Prepositional] = "девяти"
-                }
-            },
-            [10] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "десять",
-                    [Cases.Genitive] =      "десяти",
-                    [Cases.Dative] =        "десяти",
-                    [Cases.Accusative] =    "десять",
-                    [Cases.Instrumental] =  "десятью",
-                    [Cases.Prepositional] = "десяти"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "десять",
-                    [Cases.Genitive] =      "десяти",
-                    [Cases.Dative] =        "десяти",
-                    [Cases.Accusative] =    "десять",
-                    [Cases.Instrumental] =  "десятью",
-                    [Cases.Prepositional] = "десяти"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "десять",
-                    [Cases.Genitive] =      "десяти",
-                    [Cases.Dative] =        "десяти",
-                    [Cases.Accusative] =    "десять",
-                    [Cases.Instrumental] =  "десятью",
-                    [Cases.Prepositional] = "десяти"
-                }
-            },
-            [11] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "одиннадцать",
-                    [Cases.Genitive] =      "одиннадцати",
-                    [Cases.Dative] =        "одиннадцати",
-                    [Cases.Accusative] =    "одиннадцать",
-                    [Cases.Instrumental] =  "одиннадцатью",
-                    [Cases.Prepositional] = "одиннадцати"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "одиннадцать",
-                    [Cases.Genitive] =      "одиннадцати",
-                    [Cases.Dative] =        "одиннадцати",
-                    [Cases.Accusative] =    "одиннадцать",
-                    [Cases.Instrumental] =  "одиннадцатью",
-                    [Cases.Prepositional] = "одиннадцати"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "одиннадцать",
-                    [Cases.Genitive] =      "одиннадцати",
-                    [Cases.Dative] =        "одиннадцати",
-                    [Cases.Accusative] =    "одиннадцать",
-                    [Cases.Instrumental] =  "одиннадцатью",
-                    [Cases.Prepositional] = "одиннадцати"
-                }
-            },
-            [12] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "двенадцать",
-                    [Cases.Genitive] =      "двенадцати",
-                    [Cases.Dative] =        "двенадцати",
-                    [Cases.Accusative] =    "двенадцать",
-                    [Cases.Instrumental] =  "двенадцатью",
-                    [Cases.Prepositional] = "двенадцати"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "двенадцать",
-                    [Cases.Genitive] =      "двенадцати",
-                    [Cases.Dative] =        "двенадцати",
-                    [Cases.Accusative] =    "двенадцать",
-                    [Cases.Instrumental] =  "двенадцатью",
-                    [Cases.Prepositional] = "двенадцати"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "двенадцать",
-                    [Cases.Genitive] =      "двенадцати",
-                    [Cases.Dative] =        "двенадцати",
-                    [Cases.Accusative] =    "двенадцать",
-                    [Cases.Instrumental] =  "двенадцатью",
-                    [Cases.Prepositional] = "двенадцати"
-                }
-            },
-            [13] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "тринадцать",
-                    [Cases.Genitive] =      "тринадцати",
-                    [Cases.Dative] =        "тринадцати",
-                    [Cases.Accusative] =    "тринадцать",
-                    [Cases.Instrumental] =  "тринадцатью",
-                    [Cases.Prepositional] = "тринадцати"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "тринадцать",
-                    [Cases.Genitive] =      "тринадцати",
-                    [Cases.Dative] =        "тринадцати",
-                    [Cases.Accusative] =    "тринадцать",
-                    [Cases.Instrumental] =  "тринадцатью",
-                    [Cases.Prepositional] = "тринадцати"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "тринадцать",
-                    [Cases.Genitive] =      "тринадцати",
-                    [Cases.Dative] =        "тринадцати",
-                    [Cases.Accusative] =    "тринадцать",
-                    [Cases.Instrumental] =  "тринадцатью",
-                    [Cases.Prepositional] = "тринадцати"
-                }
-            },
-            [14] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "четырнадцать",
-                    [Cases.Genitive] =      "четырнадцати",
-                    [Cases.Dative] =        "четырнадцати",
-                    [Cases.Accusative] =    "четырнадцать",
-                    [Cases.Instrumental] =  "четырнадцатью",
-                    [Cases.Prepositional] = "четырнадцати"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "четырнадцать",
-                    [Cases.Genitive] =      "четырнадцати",
-                    [Cases.Dative] =        "четырнадцати",
-                    [Cases.Accusative] =    "четырнадцать",
-                    [Cases.Instrumental] =  "четырнадцатью",
-                    [Cases.Prepositional] = "четырнадцати"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "четырнадцать",
-                    [Cases.Genitive] =      "четырнадцати",
-                    [Cases.Dative] =        "четырнадцати",
-                    [Cases.Accusative] =    "четырнадцать",
-                    [Cases.Instrumental] =  "четырнадцатью",
-                    [Cases.Prepositional] = "четырнадцати"
-                }
-            },
-            [15] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "пятнадцать",
-                    [Cases.Genitive] =      "пятнадцати",
-                    [Cases.Dative] =        "пятнадцати",
-                    [Cases.Accusative] =    "пятнадцать",
-                    [Cases.Instrumental] =  "пятнадцатью",
-                    [Cases.Prepositional] = "пятнадцати"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "пятнадцать",
-                    [Cases.Genitive] =      "пятнадцати",
-                    [Cases.Dative] =        "пятнадцати",
-                    [Cases.Accusative] =    "пятнадцать",
-                    [Cases.Instrumental] =  "пятнадцатью",
-                    [Cases.Prepositional] = "пятнадцати"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "пятнадцать",
-                    [Cases.Genitive] =      "пятнадцати",
-                    [Cases.Dative] =        "пятнадцати",
-                    [Cases.Accusative] =    "пятнадцать",
-                    [Cases.Instrumental] =  "пятнадцатью",
-                    [Cases.Prepositional] = "пятнадцати"
-                }
-            },
-            [16] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "шестнадцать",
-                    [Cases.Genitive] =      "шестнадцати",
-                    [Cases.Dative] =        "шестнадцати",
-                    [Cases.Accusative] =    "шестнадцать",
-                    [Cases.Instrumental] =  "шестнадцатью",
-                    [Cases.Prepositional] = "шестнадцати"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "шестнадцать",
-                    [Cases.Genitive] =      "шестнадцати",
-                    [Cases.Dative] =        "шестнадцати",
-                    [Cases.Accusative] =    "шестнадцать",
-                    [Cases.Instrumental] =  "шестнадцатью",
-                    [Cases.Prepositional] = "шестнадцати"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "шестнадцать",
-                    [Cases.Genitive] =      "шестнадцати",
-                    [Cases.Dative] =        "шестнадцати",
-                    [Cases.Accusative] =    "шестнадцать",
-                    [Cases.Instrumental] =  "шестнадцатью",
-                    [Cases.Prepositional] = "шестнадцати"
-                }
-            },
-            [17] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "семнадцать",
-                    [Cases.Genitive] =      "семнадцати",
-                    [Cases.Dative] =        "семнадцати",
-                    [Cases.Accusative] =    "семнадцать",
-                    [Cases.Instrumental] =  "семнадцатью",
-                    [Cases.Prepositional] = "семнадцати"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "семнадцать",
-                    [Cases.Genitive] =      "семнадцати",
-                    [Cases.Dative] =        "семнадцати",
-                    [Cases.Accusative] =    "семнадцать",
-                    [Cases.Instrumental] =  "семнадцатью",
-                    [Cases.Prepositional] = "семнадцати"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "семнадцать",
-                    [Cases.Genitive] =      "семнадцати",
-                    [Cases.Dative] =        "семнадцати",
-                    [Cases.Accusative] =    "семнадцать",
-                    [Cases.Instrumental] =  "семнадцатью",
-                    [Cases.Prepositional] = "семнадцати"
-                }
-            },
-            [18] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "восемнадцать",
-                    [Cases.Genitive] =      "восемнадцати",
-                    [Cases.Dative] =        "восемнадцати",
-                    [Cases.Accusative] =    "восемнадцать",
-                    [Cases.Instrumental] =  "восемнадцатью",
-                    [Cases.Prepositional] = "восемнадцати"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "восемнадцать",
-                    [Cases.Genitive] =      "восемнадцати",
-                    [Cases.Dative] =        "восемнадцати",
-                    [Cases.Accusative] =    "восемнадцать",
-                    [Cases.Instrumental] =  "восемнадцатью",
-                    [Cases.Prepositional] = "восемнадцати"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "восемнадцать",
-                    [Cases.Genitive] =      "восемнадцати",
-                    [Cases.Dative] =        "восемнадцати",
-                    [Cases.Accusative] =    "восемнадцать",
-                    [Cases.Instrumental] =  "восемнадцатью",
-                    [Cases.Prepositional] = "восемнадцати"
-                }
-            },
-            [19] = new GendersTable()
-            {
-                [Genders.Masculine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "девятнадцать",
-                    [Cases.Genitive] =      "девятнадцати",
-                    [Cases.Dative] =        "девятнадцати",
-                    [Cases.Accusative] =    "девятнадцать",
-                    [Cases.Instrumental] =  "девятнадцатью",
-                    [Cases.Prepositional] = "девятнадцати"
-                },
-                [Genders.Feminine] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "девятнадцать",
-                    [Cases.Genitive] =      "девятнадцати",
-                    [Cases.Dative] =        "девятнадцати",
-                    [Cases.Accusative] =    "девятнадцать",
-                    [Cases.Instrumental] =  "девятнадцатью",
-                    [Cases.Prepositional] = "девятнадцати"
-                },
-                [Genders.Neuter] = new CasesTable()
-                {
-                    [Cases.Nominative] =    "девятнадцать",
-                    [Cases.Genitive] =      "девятнадцати",
-                    [Cases.Dative] =        "девятнадцати",
-                    [Cases.Accusative] =    "девятнадцать",
-                    [Cases.Instrumental] =  "девятнадцатью",
-                    [Cases.Prepositional] = "девятнадцати"
                 }
             }
         };
